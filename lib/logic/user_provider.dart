@@ -10,21 +10,29 @@ class UserApi {
   final FutureProvider<int> totalPageProvider;
   final FutureUserList fetchApiProvider;
 
+  static String baseUri = 'https://reqres.in/api/users';
+
   UserApi(ProviderRef ref)
       : totalPageProvider = FutureProvider<int>((ref) async {
-          final dio = ref.watch(dioProvider);
-          final response = await dio.get('https://reqres.in/api/users');
-          final totalPages = response.data['total_pages'] as int;
-          return totalPages;
+          return ref.watch(dioProvider).get(baseUri).then((response) {
+            final totalPages = response.data['total_pages'] as int;
+            return totalPages;
+          }).catchError((error) {
+            throw Exception('Error fetching page count $error');
+          });
         }),
         fetchApiProvider =
             FutureProvider.family<List<UserModel>, int>((ref, page) {
-          final url = 'https://reqres.in/api/users?page=$page';
-          return ref.watch(dioProvider).get(url).then((response) {
+          return ref
+              .watch(dioProvider)
+              .get('$baseUri?page=$page')
+              .then((response) {
             final userList = (response.data['data'] as List)
                 .map((json) => UserModel.fromJson(json))
                 .toList();
             return userList;
+          }).catchError((error) {
+            throw Exception("Error fetching user data: $error");
           });
         });
 }

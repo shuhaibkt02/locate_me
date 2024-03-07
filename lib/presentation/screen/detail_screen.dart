@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -17,7 +18,6 @@ class DetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final PageController _pageController = PageController();
     int activeIndex = ref.watch(activeIndexProvider);
 
     final userApi = ref.watch(userApiProvider);
@@ -41,7 +41,6 @@ class DetailScreen extends ConsumerWidget {
             data: (totalPagesData) {
               return PageView.builder(
                 onPageChanged: (value) => onPageChange(ref, value),
-                controller: _pageController,
                 itemBuilder: (context, pageIndex) {
                   final fetchApiData =
                       ref.watch(userApi.fetchApiProvider(pageIndex + 1));
@@ -55,7 +54,8 @@ class DetailScreen extends ConsumerWidget {
                             title: Text('${user.firstName} ${user.lastName}'),
                             subtitle: Text(user.email),
                             leading: CircleAvatar(
-                              backgroundImage: NetworkImage(user.avaratUrl),
+                              backgroundImage:
+                                  CachedNetworkImageProvider(user.avaratUrl),
                             ),
                           );
                         },
