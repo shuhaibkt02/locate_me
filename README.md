@@ -48,3 +48,7 @@ LocateMe is a Flutter application that allows users to view their current locati
 - The top view will show the current location's address details.
 - Tap the "Continue" button at the bottom to navigate to the second screen. On the second screen, the passed address details will be displayed at the top.
 - Below the address details, the API data fetched from https://reqres.in/api/users?page=1 will be displayed in a list view.
+
+
+## Download App || release folder
+https://appho.st/d/3LlHxF18
