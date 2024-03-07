@@ -31,9 +31,13 @@ class DetailScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: Text(
-        address,
-        style: textTheme.bodyMedium,
+          title: Hero(
+        tag: 'address',
+        child: Text(
+          address,
+          style: textTheme.bodySmall
+              ?.copyWith(fontWeight: FontWeight.w500, fontSize: 12.2),
+        ),
       )),
       body: Stack(
         children: [
@@ -50,12 +54,20 @@ class DetailScreen extends ConsumerWidget {
                         itemCount: userDataList.length,
                         itemBuilder: (context, index) {
                           final user = userDataList[index];
-                          return ListTile(
-                            title: Text('${user.firstName} ${user.lastName}'),
-                            subtitle: Text(user.email),
-                            leading: CircleAvatar(
-                              backgroundImage:
-                                  CachedNetworkImageProvider(user.avaratUrl),
+                          return TweenAnimationBuilder(
+                            tween: Tween(begin: 0.1, end: 1.0),
+                            duration: const Duration(milliseconds: 750),
+                            builder: (context, value, child) => Opacity(
+                              opacity: value,
+                              child: child,
+                            ),
+                            child: ListTile(
+                              title: Text('${user.firstName} ${user.lastName}'),
+                              subtitle: Text(user.email),
+                              leading: CircleAvatar(
+                                backgroundImage:
+                                    CachedNetworkImageProvider(user.avaratUrl),
+                              ),
                             ),
                           );
                         },

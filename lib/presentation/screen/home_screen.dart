@@ -24,9 +24,12 @@ class HomeScreen extends ConsumerWidget {
         toolbarOpacity: 0.1,
         backgroundColor: Colors.grey.shade300,
         title: initialLocationAsyncValue.when(
-          data: (initialLocation) => Text(
-            initialLocation.address,
-            style: textTheme.bodyLarge,
+          data: (initialLocation) => Hero(
+            tag: 'address',
+            child: Text(
+              initialLocation.address,
+              style: textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
+            ),
           ),
           loading: () => const Text('Loading...'),
           error: (error, stackTrace) => const Text('Error'),
