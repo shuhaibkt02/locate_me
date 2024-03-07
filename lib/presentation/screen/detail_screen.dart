@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:locate_me/logic/user_provider.dart';
 import 'package:locate_me/presentation/widget/detail%20page/dot_indicator.dart';
 
@@ -7,7 +8,12 @@ final activeIndexProvider = StateProvider<int>((ref) => 0);
 
 class DetailScreen extends ConsumerWidget {
   final String address;
-  const DetailScreen(this.address, {super.key});
+  final LatLng position;
+  const DetailScreen({
+    super.key,
+    required this.address,
+    required this.position,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

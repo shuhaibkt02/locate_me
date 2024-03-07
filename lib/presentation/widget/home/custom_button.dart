@@ -25,7 +25,10 @@ class CustomButton extends StatelessWidget {
             data: (initialLocation) => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailScreen(initialLocation.address),
+                  builder: (context) => DetailScreen(
+                    address: initialLocation.address,
+                    position: initialLocation.position,
+                  ),
                 )),
             loading: () {},
             error: (error, stackTrace) => const Text('Error'),
