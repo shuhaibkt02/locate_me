@@ -16,6 +16,7 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final initialLocationAsyncValue = ref.watch(locationProvider);
+    final textTheme = Theme.of(context).textTheme;
 
     return PopScope(
       canPop: false,
@@ -46,8 +47,14 @@ class HomeScreen extends ConsumerWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0,
+          toolbarOpacity: 0.1,
+          backgroundColor: Colors.grey.shade300,
           title: initialLocationAsyncValue.when(
-            data: (initialLocation) => Text(initialLocation.address),
+            data: (initialLocation) => Text(
+              initialLocation.address,
+              style: textTheme.bodyLarge,
+            ),
             loading: () => const Text('Loading...'),
             error: (error, stackTrace) => const Text('Error'),
           ),
