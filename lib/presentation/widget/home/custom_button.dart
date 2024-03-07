@@ -18,8 +18,8 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12),
-      child: GestureDetector(
+      padding: const EdgeInsets.symmetric(vertical: 25.0, horizontal: 12),
+      child: InkWell(
         onTap: () {
           initialLocationAsyncValue.when(
             data: (initialLocation) => Navigator.push(
@@ -38,20 +38,20 @@ class CustomButton extends StatelessWidget {
           height: 55,
           width: width / 1.5,
           decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              border: Border.all(color: Colors.black, width: 0.1),
+              color: Colors.grey.shade200,
+              border: Border.all(color: Colors.grey, width: 0.1),
               borderRadius: BorderRadius.circular(14),
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
-                  color: Colors.black,
-                  offset: Offset(0, 0),
+                  color: Colors.grey.shade900,
+                  offset: const Offset(0, 20),
                   blurRadius: 100,
-                  spreadRadius: 2,
+                  spreadRadius: 1,
                 )
               ]),
           child: Center(
             child: Text(
-              'Countine',
+              'Continue',
               style: textTheme.bodyLarge,
             ),
           ),
