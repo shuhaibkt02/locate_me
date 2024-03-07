@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:locate_me/logic/user_provider.dart';
-import 'package:locate_me/presentation/widget/dot_indicator.dart';
+import 'package:locate_me/presentation/widget/detail%20page/dot_indicator.dart';
 
 final activeIndexProvider = StateProvider<int>((ref) => 0);
 
