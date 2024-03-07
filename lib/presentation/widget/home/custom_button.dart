@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12),
       child: GestureDetector(
         onTap: () {
           initialLocationAsyncValue.when(
@@ -35,10 +35,17 @@ class CustomButton extends StatelessWidget {
           height: 55,
           width: width / 1.5,
           decoration: BoxDecoration(
-            color: Colors.grey.shade300,
-            border: Border.all(color: Colors.black, width: 0.1),
-            borderRadius: BorderRadius.circular(14),
-          ),
+              color: Colors.grey.shade300,
+              border: Border.all(color: Colors.black, width: 0.1),
+              borderRadius: BorderRadius.circular(14),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(0, 0),
+                  blurRadius: 100,
+                  spreadRadius: 2,
+                )
+              ]),
           child: Center(
             child: Text(
               'Countine',

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:locate_me/presentation/screen/home_screen.dart';
 import 'package:locate_me/presentation/screen/home_screen.dart';
 
 void main() {
