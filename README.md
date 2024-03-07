@@ -3,10 +3,15 @@
 LocateMe is a Flutter application that allows users to view their current location on a Google Map and display a list of API data on another screen. This README provides an overview of the project and instructions on how to set it up.
 
 ## Table of Contents
+- [Screenshots](#screenshot)
 - [Requirements](#requirements)
 - [Setup](#setup)
 - [Usage](#usage)
 - [Libraries Used](#libraries-used)
+
+## Screenshot
+![home](https://github.com/shuhaibkt02/locate_me/assets/111732518/7a5cbbae-2656-457f-854f-5eec505de88d) ![detail](https://github.com/shuhaibkt02/locate_me/assets/111732518/48ee1c78-2bf4-45de-b822-06f03b791619)
+
 
 
 ## Requirements
@@ -25,8 +30,7 @@ LocateMe is a Flutter application that allows users to view their current locati
    - Dio for network API calls
    - Freezed for JSON parsing
   
-## Screenshot
-![home](https://github.com/shuhaibkt02/locate_me/assets/111732518/4557e117-67c1-4684-8d12-c7f430ad6440), ![detail](https://github.com/shuhaibkt02/locate_me/assets/111732518/de9a4d3d-4114-4daa-a974-f74fb51ce083)
+
 
 ## Setup
 
